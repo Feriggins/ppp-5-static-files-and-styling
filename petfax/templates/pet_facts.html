@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ pet['pet_name'] ~ "- Pet Fact" }}</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Here are some pet details!</h1>
+    <h1>{{ pet['pet_name'] }}</h1>
+    <h2>{{ pet['pet_fact'] }}</h2>
+    <img src="{{ pet['pet_photo'] }}" />
+  </body>
+</html>

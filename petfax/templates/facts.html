@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Facts | PetFax</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Facts Page</h1>
+        
+        <!-- Action Buttons -->
+        <div class="d-flex justify-content-center mb-4">
+            <a href="{{ url_for('facts.new_fact') }}" class="btn btn-primary mr-3">Submit a New Fact</a>
+            <a href="/" class="btn btn-secondary">Go Back to Home Page</a>
+        </div>
+
+        <!-- Additional content can go here, such as a list of facts if needed -->
+        <div class="text-center">
+            <p>Here you can find all the interesting facts about our pets. Feel free to contribute by adding new facts!</p>
+        </div>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

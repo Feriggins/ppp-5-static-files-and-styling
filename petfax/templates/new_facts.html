@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add New Fact</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <!-- Include Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Add a New Fact for a Pet</h1>
+
+        <!-- Form to add new fact -->
+        <form action="{{ url_for('facts.add_fact') }}" method="POST">
+            <div class="form-group">
+                <label for="petSelect"><strong>Select a Pet:</strong></label>
+                <div class="row">
+                    {% for pet in pets %}
+                    <div class="col-md-4 col-sm-6 mb-3">
+                        <div class="card">
+                            <img src="{{ pet.pet_photo }}" class="card-img-top" alt="{{ pet.pet_name }}">
+                            <div class="card-body text-center">
+                                <input type="radio" id="pet{{ pet.pet_id }}" name="pet_id" value="{{ pet.pet_id }}" required>
+                                <label for="pet{{ pet.pet_id }}">{{ pet.pet_name }}</label>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="form-group mt-4">
+                <label for="petFact"><strong>New Fact:</strong></label>
+                <textarea class="form-control" id="petFact" name="pet_fact" rows="4" placeholder="Enter a new fact for the selected pet" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary mt-3">Submit Fact</button>
+        </form>
+    </div>
+
+    <!-- Include Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
